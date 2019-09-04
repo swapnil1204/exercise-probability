@@ -1,18 +1,21 @@
 package com.thoughtworks.bootcamp;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class ProbabilityTest {
     private static Probability probabilityOfHeadWhenCoinToss;
     private static Probability probabilityOfEvenNumberWhenDiceThrown;
-    private static Probability probabilityOfEventHeadWhenCoinToss = new Probability(0.5f);
+    private static Probability probabilityOfEventHeadWhenCoinToss ;
     private static Probability probabilityOfEventOneWhenDiceThrown;
+    private static Probability probabilityOfEventHeadWhenCoinToss1;
+    private static Probability probability;
+    private static Probability anotherProbabilityOfEvent;
+    private static Probability probabilityOfAnEvntWIthOne;
+    private static Probability probabilityOfAnEventWithTwoPointFive;
+
 
     @BeforeAll
     static void setup(){
@@ -20,7 +23,12 @@ public class ProbabilityTest {
         probabilityOfEvenNumberWhenDiceThrown = new Probability(0.5f);
         probabilityOfEventHeadWhenCoinToss = new Probability(0.5f);
         probabilityOfEventOneWhenDiceThrown = new Probability(0.4f);
-        Probability probabilityOfEventHeadWhenCoinToss1 = new Probability(0.7f);
+        probabilityOfEventHeadWhenCoinToss1 = new Probability(0.7f);
+        probabilityOfEventHeadWhenCoinToss = new Probability(0.5f);
+        probability = new Probability(0.0f);
+        anotherProbabilityOfEvent = new Probability(0.0f);
+        probabilityOfAnEvntWIthOne = new Probability(1.0f);
+        probabilityOfAnEventWithTwoPointFive = new Probability(2.5f);
     }
     @Test
     void givenEqualProbabilityOfTwoEvents_WhenEqual_ThenItShouldReturnTrue(){
@@ -38,13 +46,18 @@ public class ProbabilityTest {
     void givenProbabilityOfHeadWhenCoinTossIsPointSeven_WhenCheckNoOccurence_ThenItShouldReturnPointFive(){
         assertEquals(0.3f,probabilityOfEventHeadWhenCoinToss1.checkOccurence());
     }
-//    @Test
-//    void givenProbabilityOfHeadWhenCoinTossAndOddNumberWhenDiceThrown_WhenEventsTogether_ThenItShouldReturnExpectedResult(){
-//        float ProbabilityOfHeadWhenCoinToss = 2.5f;
-//        float ProbabilityOfEvenNumberWhenDiceThrown = 2.5f;
-//        Probability probability = new Probability(ProbabilityOfHeadWhenCoinToss);
-//        Probability anotherProbabilityOfEvent = new Probability(ProbabilityOfEvenNumberWhenDiceThrown);
-//        assertEquals(6.25f, probability.eventsTogether(anotherProbabilityOfEvent));
-//    }
+    @Test
+    void givenZeroProbabilityOfHeadWhenCoinTossAndOddNumberWhenDiceThrown_WhenEventsTogether_ThenItShouldReturnExpectedResult(){
+        assertEquals(0.0f, probability.eventsTogether(anotherProbabilityOfEvent));
+    }
+    @Test
+    void givenOneProbabilityOfHeadWhenCoinTossAndOddNumberWhenDiceThrown_WhenEventsTogether_ThenItShouldReturnExpectedResult(){
+        assertEquals(1.0f, probabilityOfAnEvntWIthOne.eventsTogether(probabilityOfAnEvntWIthOne));
+    }
+    @Test
+    void givenProbabilityOfHeadWhenCoinTossAndOddNumberWhenDiceThrown_WhenEventsTogether_ThenItShouldReturnExpectedResult(){
+        assertEquals(6.25f, probabilityOfAnEventWithTwoPointFive.eventsTogether(probabilityOfAnEventWithTwoPointFive));
+    }
+    
 }
 
