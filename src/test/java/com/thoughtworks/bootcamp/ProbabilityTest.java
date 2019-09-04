@@ -56,7 +56,7 @@ public class ProbabilityTest {
     }
     @Test
     void givenProbabilityOfHeadWhenCoinTossAndOddNumberWhenDiceThrown_WhenEventsTogether_ThenItShouldReturnExpectedResult(){
-        assertEquals(6.25f, probabilityOfAnEventWithTwoPointFive.eventsTogether(probabilityOfAnEventWithTwoPointFive));
+        assertEquals(6.25f, probabilityOfAnEventWithTwoPointFive.eventsTogether(probabilityOfAnEventWithTwoPointFive1));
     }
     
 }
