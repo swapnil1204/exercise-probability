@@ -15,4 +15,8 @@ public class Probability {
     public float checkOccurence() {
         return 1.0f - probabilityOfEvent;
     }
+
+    public float eventsTogether(Object obj) {
+        return this.probabilityOfEvent * ((Probability) obj ).probabilityOfEvent;
+    }
 }

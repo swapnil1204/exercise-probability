@@ -28,4 +28,12 @@ public class ProbabilityTest {
         Probability probabilityOfEventHeadWhenCoinToss = new Probability(0.7f);
         assertEquals(0.3f,probabilityOfEventHeadWhenCoinToss.checkOccurence());
     }
+    @Test
+    void givenProbabilityOfHeadWhenCoinTossAndOddNumberWhenDiceThrown_WhenEventsTogether_ThenItShouldReturnExpectedResult(){
+        float ProbabilityOfHeadWhenCoinToss = 2.5f;
+        float ProbabilityOfEvenNumberWhenDiceThrown = 2.5f;
+        Probability probability = new Probability(ProbabilityOfHeadWhenCoinToss);
+        Probability anotherProbabilityOfEvent = new Probability(ProbabilityOfEvenNumberWhenDiceThrown);
+        assertEquals(6.25f, probability.eventsTogether(anotherProbabilityOfEvent));
+    }
 }
