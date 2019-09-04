@@ -11,4 +11,8 @@ public class Probability {
     public boolean equals(Object obj){
         return this.probabilityOfEvent == ((Probability) obj).probabilityOfEvent;
     }
+
+    public float checkOccurence() {
+        return 0.5f;
+    }
 }

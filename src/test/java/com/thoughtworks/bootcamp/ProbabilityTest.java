@@ -3,8 +3,7 @@ package com.thoughtworks.bootcamp;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ProbabilityTest {
     @Test
@@ -18,5 +17,10 @@ public class ProbabilityTest {
         Probability probabilityOfEventHeadWhenCoinToss = new Probability(0.5f);
         Probability probabilityOfEventOneWhenDiceThrown = new Probability(0.4f);
         assertFalse(probabilityOfEventHeadWhenCoinToss.equals(probabilityOfEventOneWhenDiceThrown));
+    }
+    @Test
+    void givenProbabilityHeadWhenCoinToss_WhenCheckNoOccurence_ThenItShouldReturnPointFive(){
+        Probability probabilityOfEventHeadWhenCoinToss = new Probability(0.5f);
+        assertEquals(0.5f,probabilityOfEventHeadWhenCoinToss.checkOccurence());
     }
 }
