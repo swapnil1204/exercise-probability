@@ -10,4 +10,10 @@ public class ProbabilityTest {
         Probability probabilityOfEventOneWhenDiceThrown = new Probability(0.5f);
         Assertions.assertTrue(probabilityOfEventHeadWhenCoinToss.equals(probabilityOfEventOneWhenDiceThrown));
     }
+    @Test
+    void givenEqualProbabilityOfTwoEvents_WhenEqual_ThenItShouldReturnFalse(){
+        Probability probabilityOfEventHeadWhenCoinToss = new Probability(0.5f);
+        Probability probabilityOfEventOneWhenDiceThrown = new Probability(0.4f);
+        Assertions.assertFalse(probabilityOfEventHeadWhenCoinToss.equals(probabilityOfEventOneWhenDiceThrown));
+    }
 }

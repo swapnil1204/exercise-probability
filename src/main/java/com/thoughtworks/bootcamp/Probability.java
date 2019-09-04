@@ -9,6 +9,6 @@ public class Probability {
 
     @Override
     public boolean equals(Object obj){
-        return true;
+        return this.probabilityOfEvent == ((Probability) obj).probabilityOfEvent;
     }
 }
