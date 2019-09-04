@@ -13,6 +13,6 @@ public class Probability {
     }
 
     public float checkOccurence() {
-        return 0.5f;
+        return 1.0f - probabilityOfEvent;
     }
 }

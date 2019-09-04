@@ -23,4 +23,9 @@ public class ProbabilityTest {
         Probability probabilityOfEventHeadWhenCoinToss = new Probability(0.5f);
         assertEquals(0.5f,probabilityOfEventHeadWhenCoinToss.checkOccurence());
     }
+    @Test
+    void givenProbabilityOfHeadWhenCoinTossIsPointSeven_WhenCheckNoOccurence_ThenItShouldReturnPointFive(){
+        Probability probabilityOfEventHeadWhenCoinToss = new Probability(0.7f);
+        assertEquals(0.3f,probabilityOfEventHeadWhenCoinToss.checkOccurence());
+    }
 }
