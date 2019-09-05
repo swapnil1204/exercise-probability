@@ -24,28 +24,27 @@ public class ProbabilityTest {
         assertFalse(certainEvent.equals(impossibleEvent));
     }
     @Test
-    void givenProbabilityHeadWhenCoinToss_WhenCheckNoOccurence_ThenItShouldReturnPointFive(){
-        Probability probabilityOfAnEventWithVAlueAsTwoPointFive = new Probability(0.5f);;
-        assertEquals(0.5f, probabilityOfAnEventWithVAlueAsTwoPointFive.checkOccurence());
+    void givenZeroOccurrenceProbability_WhenUnOccurredProbability_ThenItShouldReturnOne(){
+        assertEquals(1.0f, impossibleEvent.not());
     }
     @Test
-    void givenProbabilityOfHeadWhenCoinTossIsPointSeven_WhenCheckNoOccurence_ThenItShouldReturnPointFive(){
+    void givenOccurrenceProbabilityValueAsPointSeven_WhenUnOccurredProbability_ThenItShouldReturnPointThree(){
         Probability probabilityOfEventHeadWhenCoinToss= new Probability(0.7f);
-        assertEquals(0.3f,probabilityOfEventHeadWhenCoinToss.checkOccurence());
+        assertEquals(0.3f,probabilityOfEventHeadWhenCoinToss.not());
     }
     @Test
-    void givenZeroProbabilityOfHeadWhenCoinTossAndOddNumberWhenDiceThrown_WhenEventsTogether_ThenItShouldReturnExpectedResult(){
-        assertEquals(0.0f, impossibleEvent.eventsTogether(impossibleEvent));
+    void givenZeroProbabilityOfTwoEvent_WhenEventsTogether_ThenItShouldReturnZero(){
+        assertEquals(0.0f, impossibleEvent.with(impossibleEvent));
     }
     @Test
-    void givenOneProbabilityOfHeadWhenCoinTossAndOddNumberWhenDiceThrown_WhenEventsTogether_ThenItShouldReturnExpectedResult(){
-        assertEquals(1.0f, certainEvent.eventsTogether(certainEvent));
+    void givenOneProbabilityOfTwoEvent_WhenEventsTogether_ThenItShouldReturnExpectedResult(){
+        assertEquals(1.0f, certainEvent.with(certainEvent));
     }
     @Test
-    void givenProbabilityOfHeadWhenCoinTossAndOddNumberWhenDiceThrown_WhenEventsTogether_ThenItShouldReturnExpectedResult(){
+    void givenProbabilityOfTwoEventAsTwoPointFive_WhenEventsTogether_ThenItShouldReturnSixPointFive(){
         Probability probabilityOfAnEventWithTwoPointFive = new Probability(2.5f);
-        assertEquals(6.25f, probabilityOfAnEventWithTwoPointFive.eventsTogether(probabilityOfAnEventWithTwoPointFive));
+        assertEquals(6.25f, probabilityOfAnEventWithTwoPointFive.with(probabilityOfAnEventWithTwoPointFive));
     }
-    
 }
+
 

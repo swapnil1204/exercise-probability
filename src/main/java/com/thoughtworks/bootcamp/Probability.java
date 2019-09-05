@@ -12,11 +12,11 @@ public class Probability {
         return this.probabilityOfEvent == ((Probability) obj).probabilityOfEvent;
     }
 
-    public float checkOccurence() {
+    public float not() {
         return 1.0f - probabilityOfEvent;
     }
 
-    public float eventsTogether(Object obj) {
+    public float with(Object obj) {
         return this.probabilityOfEvent * ((Probability) obj ).probabilityOfEvent;
     }
 }
