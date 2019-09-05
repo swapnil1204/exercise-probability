@@ -29,29 +29,29 @@ public class ProbabilityTest {
 
     @Test
     void givenZeroOccurrenceProbability_WhenUnOccurredProbability_ThenItShouldReturnOne() {
-        assertEquals(1.0f, impossibleEvent.not());
+        assertEquals(new Probability(1.0f), impossibleEvent.not());
     }
 
     @Test
     void givenOccurrenceProbabilityValueAsPointSeven_WhenUnOccurredProbability_ThenItShouldReturnPointThree() {
         Probability probabilityOfEventHeadWhenCoinToss = new Probability(0.7f);
-        assertEquals(0.3f, probabilityOfEventHeadWhenCoinToss.not());
+        assertEquals(new Probability(0.3f), probabilityOfEventHeadWhenCoinToss.not());
     }
 
     @Test
     void givenZeroProbabilityOfTwoEvent_WhenEventsTogether_ThenItShouldReturnZero() {
-        assertEquals(0.0f, impossibleEvent.with(impossibleEvent));
+        assertEquals(new Probability(0.0f), impossibleEvent.with(impossibleEvent));
     }
 
     @Test
     void givenOneProbabilityOfTwoEvent_WhenEventsTogether_ThenItShouldReturnExpectedResult() {
-        assertEquals(1.0f, certainEvent.with(certainEvent));
+        assertEquals(new Probability(1.0f), certainEvent.with(certainEvent));
     }
 
     @Test
     void givenProbabilityOfTwoEventAsTwoPointFive_WhenEventsTogether_ThenItShouldReturnSixPointFive() {
         Probability probabilityOfAnEventWithTwoPointFive = new Probability(2.5f);
-        assertEquals(6.25f, probabilityOfAnEventWithTwoPointFive.with(probabilityOfAnEventWithTwoPointFive));
+        assertEquals(new Probability(6.25f), probabilityOfAnEventWithTwoPointFive.with(probabilityOfAnEventWithTwoPointFive));
     }
 
     @Test

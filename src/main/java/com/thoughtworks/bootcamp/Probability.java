@@ -12,16 +12,16 @@ public class Probability {
         return this.probabilityOfEvent == ((Probability) obj).probabilityOfEvent;
     }
 
-    public float not() {
-        return 1.0f - probabilityOfEvent;
+    public Probability not() {
+        return new Probability(1.0f - probabilityOfEvent);
     }
 
-    public float with(Object obj) {
-        return this.probabilityOfEvent * ((Probability) obj).probabilityOfEvent;
+    public Probability with(Object obj) {
+        Probability object = (Probability) obj;
+        return new Probability(probabilityOfEvent * object.probabilityOfEvent);
     }
 
     public Probability eighter(Probability event) {
-        //error : cannot resolve with float if return type of float is with
         return new Probability(probabilityOfEvent).not().with(new Probability(event.probabilityOfEvent).not()).not();
     }
 
